@@ -64,6 +64,18 @@ body {
     background: #000 !important;
 }
 
+/* A full-page overlay in order to cover up the body's background image
+and give this page a white background */
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
