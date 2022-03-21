@@ -76,6 +76,12 @@ and give this page a white background */
 	z-index: -1;
 }
 
+/* Invert the colours of the badges on hovering over them */
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
