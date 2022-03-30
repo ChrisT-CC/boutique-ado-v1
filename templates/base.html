@@ -6,7 +6,7 @@
 <head>
 
     {% block meta %}
-    <!-- Required meta tags -->
+        <!-- Required meta tags -->
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -133,7 +133,21 @@
     </header>
 
     {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
     {% endif %}
 
     <!-- This is going to act as an additional header on pages that extend this base template -->
@@ -146,6 +160,9 @@
 
     <!-- JavaScript that loads at the end of the body -->
     {% block postloadjs %}
+        <script type="text/javascript">
+            $('.toast').toast('show');
+        </script>
     {% endblock %}
 
 </body>
