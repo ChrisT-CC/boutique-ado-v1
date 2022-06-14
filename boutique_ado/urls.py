@@ -28,3 +28,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     # use the static function to add the MEDIA_URL to the list of URLs
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+HANDLER404 = 'boutique_ado.views.handler404'
